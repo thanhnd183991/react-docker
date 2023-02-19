@@ -3,7 +3,6 @@ pipeline {
 
     environment {     
         DOCKERHUB_CREDENTIALS= credentials('dockerhubcredentials')     
-        PASSWORD_CLIENT= 123456a@
     } 
 
     stages {
@@ -14,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo $PASSWORD_CLIENT | sudo docker build -t ducthanh/react-docker:$BUILD_NUMBER . --password-stdin'     
+                sh 'echo 123456a@ | sudo docker build -t ducthanh/react-docker:$BUILD_NUMBER . --password-stdin'     
 	            echo 'Build Image Completed' 
             }
         }
