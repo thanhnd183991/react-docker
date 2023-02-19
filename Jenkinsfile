@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo 123456a@ | sudo docker build -t ducthanh/react-docker:$BUILD_NUMBER . --password-stdin'     
+                sh 'sudo docker build -t ducthanh/react-docker:$BUILD_NUMBER .'     
 	            echo 'Build Image Completed' 
             }
         }
