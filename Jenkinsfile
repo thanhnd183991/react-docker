@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'sudo docker build -t ducthanh/react-docker:$BUILD_NUMBER .'     
+                sh 'docker build -t ducthanh/react-docker:$BUILD_NUMBER .'     
 	            echo 'Build Image Completed' 
             }
         }
