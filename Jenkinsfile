@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                whoami
                 echo 'Testing..'
             }
         }
