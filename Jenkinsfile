@@ -12,12 +12,12 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'docker build -t ducthanh/react-docker:$BUILD_NUMBER -t ducthanh/react-docker:latest .'     
-	            echo 'Build Image Completed' 
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         sh 'docker build -t ducthanh/react-docker:$BUILD_NUMBER -t ducthanh/react-docker:latest .'     
+	    //         echo 'Build Image Completed' 
+        //     }
+        // }
 
         stage('Login to Docker Hub') {         
             steps{                            
@@ -27,7 +27,7 @@ pipeline {
         }               
         stage('Push Image to Docker Hub') {         
             steps{                            
-	            sh 'docker push ducthanh/react-docker:$BUILD_NUMBER'
+	            sh 'docker push ducthanh/react-docker:latest'
                 echo 'Push Image Completed'       
             }           
         }
