@@ -34,7 +34,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh "ssh -oStrictHostKeyChecking=no ec2-user@ec2-13-115-35-162.ap-northeast-1.compute.amazonaws.com -i='/home/thanh/Documents/aws/keypair/aws-ec2-server1.pem' && ./deploy.sh"
+                sh "pwd  && ssh -oStrictHostKeyChecking=no ec2-user@ec2-13-115-35-162.ap-northeast-1.compute.amazonaws.com -i='/home/thanh/Documents/aws/keypair/aws-ec2-server1.pem' && ./deploy.sh"
                 echo 'Deploying....'
             }
         }
