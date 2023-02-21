@@ -19,22 +19,22 @@ pipeline {
         //     }
         // }
 
-        stage('Login to Docker Hub') {         
-            steps{                            
-	            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
-	            echo 'Login Completed'                
-            }           
-        }               
-        stage('Push Image to Docker Hub') {         
-            steps{                            
-	            sh 'docker push ducthanh/react-docker:latest'
-                echo 'Push Image Completed'       
-            }           
-        }
+        // stage('Login to Docker Hub') {         
+        //     steps{                            
+	    //         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
+	    //         echo 'Login Completed'                
+        //     }           
+        // }               
+        // stage('Push Image to Docker Hub') {         
+        //     steps{                            
+	    //         sh 'docker push ducthanh/react-docker:latest'
+        //         echo 'Push Image Completed'       
+        //     }           
+        // }
 
         stage('Deploy') {
             steps {
-                sh "pwd  && ssh -oStrictHostKeyChecking=no ec2-user@ec2-13-115-35-162.ap-northeast-1.compute.amazonaws.com -i='/home/thanh/Documents/aws/keypair/aws-ec2-server1.pem' && ./deploy.sh"
+                sh "pwd  && ssh -tt -oStrictHostKeyChecking=no ec2-user@ec2-13-115-35-162.ap-northeast-1.compute.amazonaws.com -i='/home/thanh/Documents/aws/keypair/aws-ec2-server1.pem' && ./deploy.sh"
                 echo 'Deploying....'
             }
         }
